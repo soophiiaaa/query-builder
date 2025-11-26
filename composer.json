@@ -4,7 +4,7 @@
     "type": "library",
     "autoload": {
         "psr-4": {
-            "Soophiiaaa\\QueryBuilder\\": "src/"
+            "Sophia\\QueryBuilder\\": "src/"
         }
     },
     "authors": [
@@ -13,5 +13,7 @@
             "email": "sbuarquemagalhaes@gmail.com"
         }
     ],
-    "require": {}
+    "require": {
+        "vlucas/phpdotenv": "^5.6"
+    }
 }
