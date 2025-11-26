@@ -1,0 +1,17 @@
+{
+    "name": "soophiiaaa/query-builder",
+    "description": "A query-builder that will be a component of a future project.",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "Soophiiaaa\\QueryBuilder\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Sophia Lacerda",
+            "email": "sbuarquemagalhaes@gmail.com"
+        }
+    ],
+    "require": {}
+}
