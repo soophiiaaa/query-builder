@@ -7,13 +7,13 @@ use PDOException;
 
 class Connection
 {
-    public static function define()
+    public static function define(): PDO
     {
-        $host = $_ENV['DB_HOST'];
-        $user = $_ENV['DB_USER'];
-        $pass = $_ENV['DB_PASSWORD'];
+        $host     = $_ENV['DB_HOST'];
+        $user     = $_ENV['DB_USER'];
+        $pass     = $_ENV['DB_PASSWORD'];
         $database = $_ENV['DB_NAME'];
-        $port = $_ENV['DB_PORT'];
+        $port     = $_ENV['DB_PORT'];
 
         // Variable that stores the database address to simplify the connection
         $dsn = "pgsql:host={$host} port={$port} dbname={$database}";
