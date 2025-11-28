@@ -4,6 +4,7 @@ namespace Sophia\QueryBuilder\Core;
 
 use Sophia\QueryBuilder\Infrastructure\Database\Connection;
 use PDO;
+use PDOException;
 
 abstract class Query
 {
@@ -15,8 +16,7 @@ abstract class Query
     public function __construct(
         PDO $pdo,
         string $table
-    )
-    {
+    ) {
         // Checks if pdo is empty and receives the database connection
         if (empty($pdo)) {
             $pdo = Connection::connect();
@@ -29,11 +29,14 @@ abstract class Query
 
     public function execute(): array
     {
-        $sql = $this->toSql();
-        $statement = $this->pdo->prepare($sql);
+        try {
+            $sql = $this->toSql();
+            $statement = $this->pdo->prepare($sql);
+            $statement->execute($this->bindings);
 
-        $statement->execute($this->bindings);
-
-        return $statement->fetchAll(PDO::FETCH_ASSOC);
+            return $statement->fetchAll(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            throw new \Exception("Error to execute Query: {$e->getMessage()}");
+        }
     }
 }
