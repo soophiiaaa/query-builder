@@ -2,9 +2,24 @@
 
 namespace Sophia\QueryBuilder\Core;
 
-abstract class Query
+use Sophia\QueryBuilder\Infrastructure\Database\Connection;
+use PDO;
+use PDOException;
+
+class Query
 {
-    protected array $tables = [];
-    protected array $parameters = [];
-    protected array $where = [];
+    private ?PDO $pdo;
+    protected string $table;
+    protected array $params;
+    protected array $where;
+
+    public function __construct(
+        ?PDO $pdo = null
+    )
+    {
+        if (empty($pdo)) {
+            $pdo = Connection::define();
+        }
+        $this->pdo = $pdo;
+    }
 }
