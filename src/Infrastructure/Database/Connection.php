@@ -7,7 +7,7 @@ use PDOException;
 
 class Connection
 {
-    public static function define(): PDO
+    public static function connect(): PDO
     {
         $host     = $_ENV['DB_HOST'];
         $user     = $_ENV['DB_USER'];
