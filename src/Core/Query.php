@@ -25,9 +25,10 @@ abstract class Query
         $this->table = $table;
     }
 
+    // Receives the query in string format
     abstract public function toSql(): string;
 
-    public function execute(): array
+    /* public function execute(): array
     {
         try {
             $sql = $this->toSql();
@@ -38,5 +39,15 @@ abstract class Query
         } catch (PDOException $e) {
             throw new \Exception("Error to execute Query: {$e->getMessage()}");
         }
+    } */
+
+    public function setTable(string $table): void
+    {
+        $this->table = $table;
+    }
+
+    public function getTable(): string
+    {
+        return $this->table;
     }
 }
