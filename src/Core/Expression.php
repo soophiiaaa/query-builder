@@ -5,7 +5,6 @@ namespace Sophia\QueryBuilder\Core;
 use PDO;
 use PDOException;
 
-
 /**
  * Class Expression
  * An abstract class for anything that represents a logical SQL expression.

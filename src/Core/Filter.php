@@ -3,8 +3,6 @@
 namespace Sophia\QueryBuilder\Core;
 
 use Sophia\QueryBuilder\Core\Expression;
-use PDO;
-use PDOException;
 
 /**
  * Class Filter
@@ -50,8 +48,8 @@ class Filter extends Expression
         return $result;
     }
 
-    public function dump()
+    public function dump(): string
     {
-        
+        return "{$this->variable} {$this->operator} {$this->value}";
     }
 }
