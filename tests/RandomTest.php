@@ -1,6 +1,6 @@
 <?php
 
-$conn = pg_connect("host=localhost port=5432 dbname=cadastro user=sophia password=Slbms20070511_");
+$conn = pg_connect("host=localhost port=5432 dbname=cadastro user=user password=pass");
 
 if (!$conn) {
     die("Erro ao conectar");
