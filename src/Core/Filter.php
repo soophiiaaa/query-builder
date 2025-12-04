@@ -4,10 +4,6 @@ namespace Sophia\QueryBuilder\Core;
 
 use Sophia\QueryBuilder\Core\Expression;
 
-/**
- * Class Filter
- * It's a specialization of Expression Class, it represents a simples expression.
- */
 class Filter extends Expression
 {
     private string $variable;
@@ -18,34 +14,43 @@ class Filter extends Expression
         string $variable,
         string $operator,
         mixed $value
-    ) 
-    {
+    ) {
         $this->variable = $variable;
         $this->operator = $operator;
         $this->value = $this->transform($value);
     }
 
-    private function transform(mixed $value)
+    private function transform(mixed $value): string
     {
         if (is_array($value)) {
-            foreach ($value as $i) {
-                if (is_integer($i)) {
-                    $foo[] = $i;
-                } else if (is_string($i)) {
-                    $foo[] = "'$i'";
-                }
-            }
-            $result = '(' . implode(',', $foo) . ')';
-        } else if (is_string($value)) {
-            $result = "'$value'";
-        } else if (is_null($value)) {
-            $result = 'NULL';
-        } else if (is_bool($value)) {
-            $result = $value ? 'TRUE' : 'FALSE';
-        } else {
-            $result = $value;
+            $formattedValues = array_map(
+                [$this, 'scalarValues'],
+                $value
+            );
+            return '(' . implode(',', $formattedValues) . ')';
         }
-        return $result;
+
+        return $this->scalarValues($value);
+    }
+
+    private function scalarValues(mixed $value): string
+    {
+        if (is_string($value)) {
+            $result = "'$value'";
+            return $result;
+        }
+
+        if (is_null($value)) {
+            $result = 'NULL';
+            return $result;
+        }
+
+        if (is_bool($value)) {
+            $result = $value ? 'TRUE' : 'FALSE';
+            return $result;
+        }
+
+        return $value;
     }
 
     public function dump(): string
