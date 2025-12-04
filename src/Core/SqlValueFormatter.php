@@ -19,6 +19,7 @@ class SqlValueFormatter
     public function scalarValues(mixed $value): mixed
     {
         if (is_string($value)) {
+            $value = addslashes($value);
             $result = "'$value'";
             return $result;
         }

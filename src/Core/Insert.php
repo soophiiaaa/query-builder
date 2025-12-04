@@ -9,23 +9,15 @@ final class Insert extends Instruction
 {
     private array $columnValues;
 
+    public function __construct()
+    {
+        parent::__construct();
+    }
+
     public function set(string $column, mixed $value): void
     {
-        if (is_scalar($value)) {
-            if (is_string($value) && (!empty($value))) {
-                $value = addslashes($value);
-                $this->columnValues[$column] = "'$value'";
-            }
-            else if (is_bool($value)) {
-                $this->columnValues[$column] = $value ? 'TRUE' : 'FALSE';
-            }
-            else if ($value !== '') {
-                $this->columnValues[$column] = $value;
-            }
-            else {
-                $this->columnValues[$column] = "NULL";
-            }
-        }
+        $formattedValue = $this->formatter->format($value);
+        $this->columnValues[$column] = $formattedValue;
     }
 
     public function setCriteria(Criteria $criteria): void
