@@ -14,12 +14,11 @@ use Sophia\QueryBuilder\Core\SqlValueFormatter;
  */
 abstract class Expression
 {
-    /** @var string Logical AND operator. */
     const AND_OPERATOR = 'AND';
-
-    /** @var string Logical OR operator. */
     const OR_OPERATOR = 'OR';
 
+    /** @var SqlValueFormatter Instance of SqlValueFormatter class that will
+     * transform different types of values into string. */
     protected SqlValueFormatter $formatter;
 
     public function __construct()
