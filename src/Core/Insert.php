@@ -9,10 +9,7 @@ final class Insert extends Instruction
 {
     private array $columnValues;
 
-    public function set(
-        string $column,
-        mixed $value
-    )
+    public function set(string $column, mixed $value): void
     {
         if (is_scalar($value)) {
             if (is_string($value) && (!empty($value))) {
@@ -44,6 +41,7 @@ final class Insert extends Instruction
             ', ',
             array_keys($this->columnValues)
         );
+
         $values = implode(
             ', ',
             array_values($this->columnValues)

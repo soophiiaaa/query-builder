@@ -1,0 +1,48 @@
+<?php
+
+namespace Sophia\QueryBuilder\Core;
+
+class SqlValueFormatter
+{
+    public function format(mixed $value): string
+    {
+        if (is_array($value)) {
+            $formattedValue = $this->complexValues($value);
+            return $formattedValue;
+        }
+
+        $formattedValue = $this->scalarValues($value);
+
+        return $formattedValue;
+    }
+
+    public function scalarValues(mixed $value): mixed
+    {
+        if (is_string($value)) {
+            $result = "'$value'";
+            return $result;
+        }
+
+        if (is_null($value)) {
+            $result = 'NULL';
+            return $result;
+        }
+
+        if (is_bool($value)) {
+            $result = $value ? 'TRUE' : 'FALSE';
+            return $result;
+        }
+
+        return $value;
+    }
+
+    public function complexValues(mixed $value): mixed
+    {
+        $formattedValues = array_map(
+            [$this, 'scalarValues'],
+            $value
+        );
+
+        return '(' . implode(',', $formattedValues) . ')';
+    }
+}

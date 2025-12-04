@@ -2,6 +2,8 @@
 
 namespace Sophia\QueryBuilder\Core;
 
+use Sophia\QueryBuilder\Core\SqlValueFormatter;
+
 /**
  * Base class for all logical SQL expressions used by the query builder.
  * 
@@ -17,6 +19,13 @@ abstract class Expression
 
     /** @var string Logical OR operator. */
     const OR_OPERATOR = 'OR';
+
+    protected SqlValueFormatter $formatter;
+
+    public function __construct()
+    {
+        $this->formatter = new SqlValueFormatter();
+    }
 
     /**
      * Converts the expression into a raw SQL fragment.
