@@ -16,13 +16,10 @@ class Criteria extends Expression
         $this->operators = [];
     }
 
-    public function add(
-        Expression $expression,
-        string $operator = self::AND_OPERATOR 
-    ): void
+    public function add(Expression $expression, string $operator = self::AND_OPERATOR): void
     {
         if (empty($this->expressions)) {
-            $operator = NULL;
+            $operator = null;
         }
 
         $this->expressions[] = $expression;
@@ -31,27 +28,26 @@ class Criteria extends Expression
 
     public function dump(): string
     {
-        if (is_array($this->expressions)) {
-            if (count($this->expressions) > 0) {
-                $result = '';
-                foreach ($this->expressions as $i => $expression) {
-                    if ($i > 0) {
-                        $result .= ' ' . $this->operators[$i] . ' ';
-                    }
-                    $result .= $expression->dump();
-                }
-                return '(' . trim($result) . ')';
-            }
+        if (count($this->expressions) === 0) {
+            return '';
         }
+
+        $parts = [];
+
+        foreach ($this->expressions as $i => $expression) {
+            if ($i > 0) {
+                $parts[] = $this->operators[$i];
+            }
+
+            $parts[] = $expression->dump();
+        }
+
+        return '(' . implode(' ', $parts) . ')';
     }
 
-    public function setProperty(
-        string $property,
-        mixed $value
-    ): void
-    {
+    public function setProperty(string $property, mixed $value): void {
         if (!isset($value)) {
-            $this->properties[$property] = NULL;
+            $this->properties[$property] = null;
         }
 
         $this->properties[$property] = $value;
