@@ -14,7 +14,7 @@ final class Insert extends Instruction
         parent::__construct();
     }
 
-    public function set(string $column, mixed $value): void
+    public function setRowData(string $column, mixed $value): void
     {
         $formattedValue = $this->formatter->format($value);
         $this->columnValues[$column] = $formattedValue;
