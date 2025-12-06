@@ -53,10 +53,12 @@ class Criteria extends Expression
         $this->properties[$property] = $value;
     }
 
-    public function getProperty($property): mixed
+    public function getProperty(string $property): string
     {
         if (isset($this->properties[$property])) {
             return $this->properties[$property];
         }
+
+        return '';
     }
 }
