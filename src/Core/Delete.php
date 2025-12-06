@@ -2,9 +2,9 @@
 
 namespace Sophia\QueryBuilder\Core;
 
-use Sophia\QueryBuilder\Core\Instruction;
+use Sophia\QueryBuilder\Core\Query;
 
-final class Delete extends Instruction
+final class Delete extends Query
 {
     public function getInstruction(): string
     {

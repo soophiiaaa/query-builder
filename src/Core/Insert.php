@@ -3,9 +3,9 @@
 namespace Sophia\QueryBuilder\Core;
 
 use Exception;
-use Sophia\QueryBuilder\Core\Instruction;
+use Sophia\QueryBuilder\Core\Query;
 
-final class Insert extends Instruction
+final class Insert extends Query
 {
     private array $columnValues;
 

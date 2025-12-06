@@ -5,7 +5,7 @@ namespace Sophia\QueryBuilder\Core;
 use Sophia\QueryBuilder\Core\Criteria;
 use Sophia\QueryBuilder\Core\SqlValueFormatter;
 
-abstract class Instruction
+abstract class Query
 {
     protected string $sql;
     protected Criteria $criteria;

@@ -2,6 +2,7 @@
 
 namespace Sophia\QueryBuilder\Core;
 
+use Sophia\QueryBuilder\Core\ComparisonOperator;
 use Sophia\QueryBuilder\Core\Expression;
 
 /**
@@ -29,7 +30,7 @@ class Filter extends Expression
 
     public function __construct(
         string $variable,
-        string $operator,
+        string $operator = ComparisonOperator::EQUAL,
         mixed $value
     )
     {
