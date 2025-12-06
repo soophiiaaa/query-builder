@@ -2,9 +2,9 @@
 
 namespace Sophia\QueryBuilder\Core;
 
-use Sophia\QueryBuilder\Core\Instruction;
+use Sophia\QueryBuilder\Core\Query;
 
-final class Update extends Instruction
+final class Update extends Query
 {
     private array $columnValues;
 
