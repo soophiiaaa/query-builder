@@ -2,8 +2,8 @@
 
 namespace Sophia\QueryBuilder\Core;
 
-use Sophia\QueryBuilder\Core\ComparisonOperator;
 use Sophia\QueryBuilder\Core\Expression;
+use Sophia\QueryBuilder\Core\Operators;
 
 /**
  * Represents a simple comparison expression used in SQL WHERE clauses.
@@ -37,7 +37,7 @@ class Filter extends Expression
         parent::__construct();
 
         $this->variable = $variable;
-        $this->operator = ComparisonOperator::validate($operator);
+        $this->operator = Operators::validate($operator);
         $this->value    = $value;
     }
     

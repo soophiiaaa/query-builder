@@ -4,8 +4,10 @@ namespace Sophia\QueryBuilder\Core;
 
 use InvalidArgumentException;
 
-final class ComparisonOperator
+final class Operators
 {
+    public const AND                    = 'AND';
+    public const OR                     = 'OR';
     public const EQUAL                  = '=';
     public const NOT_EQUAL              = '!=';
     public const GREATHER_THAN          = '>';
@@ -15,8 +17,9 @@ final class ComparisonOperator
     public const LIKE                   = 'LIKE';
     public const NOT_LIKE               = 'NOT LIKE';
     public const IN                     = 'IN';
-    public const IS_NULL                = 'IS NULL';
-    public const IS_NOT_NULL            = 'IS NOT NULL';
+    public const IN_NOT                 = 'IN NOT';
+    public const IS                     = 'IS';
+    public const IS_NOT                 = 'IS NOT';
 
     static public function validate(string $operator)
     {

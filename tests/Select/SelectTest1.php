@@ -11,7 +11,7 @@ $sql = new Select;
 
 $criteria->add(new Filter(
         'nome',
-        'banana',
+        'LIKE',
         'Maria%'
     )
 );
