@@ -3,6 +3,7 @@
 namespace Sophia\QueryBuilder\Core;
 
 use Sophia\QueryBuilder\Core\Expression;
+use Sophia\QueryBuilder\Core\Operators;
 
 class Criteria extends Expression
 {
@@ -18,12 +19,13 @@ class Criteria extends Expression
 
     public function add(Expression $expression, string $operator = self::AND_OPERATOR): void
     {
-        if (empty($this->expressions)) {
-            $operator = null;
+        if (!empty($this->expressions)) {
+            $this->operators[] = Operators::validate($operator);
         }
 
+        $this->operators[] = null;
+
         $this->expressions[] = $expression;
-        $this->operators[]   = $operator;
     }
 
     public function dump(): string
@@ -45,7 +47,8 @@ class Criteria extends Expression
         return '(' . implode(' ', $parts) . ')';
     }
 
-    public function setProperty(string $property, mixed $value): void {
+    public function setProperty(string $property, mixed $value): void
+    {
         if (!isset($value)) {
             $this->properties[$property] = null;
         }

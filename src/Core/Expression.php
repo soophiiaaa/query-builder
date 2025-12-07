@@ -15,7 +15,7 @@ use Sophia\QueryBuilder\Core\SqlValueFormatter;
 abstract class Expression
 {
     const AND_OPERATOR = 'AND';
-    const OR_OPERATOR = 'OR';
+    const OR_OPERATOR  = 'OR';
 
     /** @var SqlValueFormatter Instance of SqlValueFormatter class that will
      * transform different types of values into string. */
