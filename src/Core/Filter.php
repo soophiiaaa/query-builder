@@ -30,14 +30,14 @@ class Filter extends Expression
 
     public function __construct(
         string $variable,
-        string $operator = ComparisonOperator::EQUAL,
+        string $operator,
         mixed $value
     )
     {
         parent::__construct();
 
         $this->variable = $variable;
-        $this->operator = $operator;
+        $this->operator = ComparisonOperator::validate($operator);
         $this->value    = $value;
     }
     

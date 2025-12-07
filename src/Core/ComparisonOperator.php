@@ -2,6 +2,8 @@
 
 namespace Sophia\QueryBuilder\Core;
 
+use InvalidArgumentException;
+
 final class ComparisonOperator
 {
     public const EQUAL                  = '=';
@@ -16,5 +18,15 @@ final class ComparisonOperator
     public const IS_NULL                = 'IS NULL';
     public const IS_NOT_NULL            = 'IS NOT NULL';
 
-    private array $validValues = ['=', '!=', '>', '<', '>=', '<=', 'LIKE', 'NOT LIKE', 'IN', 'IS NULL', 'IS NOT NULL'];
+    static public function validate(string $operator)
+    {
+        $constants = (new \ReflectionClass(__CLASS__))->getConstants();
+        $operatorUpper = trim(strtoupper($operator));
+
+        if (!in_array($operatorUpper, $constants)) {
+            throw new InvalidArgumentException("Error: Invalid value, use SQL operators");
+        }
+
+        return $operatorUpper;
+    }
 }

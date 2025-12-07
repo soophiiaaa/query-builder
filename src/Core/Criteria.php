@@ -2,6 +2,7 @@
 
 namespace Sophia\QueryBuilder\Core;
 
+use Sophia\QueryBuilder\Core\ComparisonOperator;
 use Sophia\QueryBuilder\Core\Expression;
 
 class Criteria extends Expression
