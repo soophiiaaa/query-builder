@@ -2,6 +2,8 @@
 
 namespace Sophia\QueryBuilder\Core;
 
+use Sophia\QueryBuilder\Core\Literals;
+
 class SqlValueFormatter
 {
     public function format(mixed $value): string
@@ -25,12 +27,12 @@ class SqlValueFormatter
         }
 
         if (is_null($value)) {
-            $result = 'NULL';
+            $result = Literals::NULL;
             return $result;
         }
 
         if (is_bool($value)) {
-            $result = $value ? 'TRUE' : 'FALSE';
+            $result = $value ? Literals::TRUE : Literals::FALSE;
             return $result;
         }
 

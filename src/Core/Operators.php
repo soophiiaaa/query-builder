@@ -12,7 +12,7 @@ final class Operators
     public const NOT_EQUAL              = '!=';
     public const GREATER_THAN           = '>';
     public const LESS_THAN              = '<';
-    public const GREATHER_THAN_OR_EQUAL = '>=';
+    public const GREATER_THAN_OR_EQUAL  = '>=';
     public const LESS_THAN_OR_EQUAL     = '<=';
     public const LIKE                   = 'LIKE';
     public const NOT_LIKE               = 'NOT LIKE';
@@ -23,7 +23,7 @@ final class Operators
     public const NOT_IN                 = 'NOT IN';
     public const BETWEEN                = 'BETWEEN';
 
-    static public function validate(string $operator)
+    public static function validate(string $operator)
     {
         $constants = (new \ReflectionClass(__CLASS__))->getConstants();
         $operatorUpper = trim(strtoupper($operator));
