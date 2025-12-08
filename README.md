@@ -58,10 +58,10 @@ require_once __DIR__ . '/../../bootstrap.php';
 
 $sql = new Insert;
 
-$sql->setTable('pessoa');
+$sql->setTable('person');
 
-$sql->setRowData('codigo', 'abc');
-$sql->setRowData('nome', 'Ameixa');
+$sql->setRowData('codigo', 1);
+$sql->setRowData('nome', 'Mary');
 
 $pdo = $sql->getInstruction();
 
