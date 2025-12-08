@@ -6,8 +6,8 @@ use Sophia\QueryBuilder\Core\Criteria;
 use Sophia\QueryBuilder\Core\Filter;
 use Sophia\QueryBuilder\Core\Update;
 
-$criteria = new Criteria();
-$sql = new Update();
+$criteria = new Criteria;
+$sql = new Update;
 
 $criteria->add(new Filter(
         'id',

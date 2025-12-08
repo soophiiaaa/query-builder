@@ -29,7 +29,7 @@ final class Update extends Query
             }
         }
 
-        $this->sql = ' SET ' . implode(', ', $set);
+        $this->sql .= ' SET ' . implode(', ', $set);
 
         if ($this->criteria) {
             $this->sql .= ' WHERE ' . $this->criteria->dump();

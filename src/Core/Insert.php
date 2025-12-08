@@ -7,17 +7,18 @@ use Sophia\QueryBuilder\Core\Query;
 
 final class Insert extends Query
 {
-    private array $columnValues;
+    private array $columnValues = [];
 
     public function __construct()
     {
         parent::__construct();
     }
-
+ 
     public function setRowData(string $column, mixed $value): void
     {
         $formattedValue = $this->formatter->format($value);
         $this->columnValues[$column] = $formattedValue;
+        echo "Values entered into the database \n";
     }
 
     public function setCriteria(Criteria $criteria): void

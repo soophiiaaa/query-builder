@@ -7,8 +7,8 @@ use Sophia\QueryBuilder\Core\Filter;
 use Sophia\QueryBuilder\Core\Select;
 use Sophia\QueryBuilder\Infrastructure\Database\Connection;
 
-$sql = new Select();
-$criteria = new Criteria();
+$sql = new Select;
+$criteria = new Criteria;
 
 $sql->setTable('pessoa');
 
