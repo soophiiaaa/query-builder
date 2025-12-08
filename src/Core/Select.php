@@ -19,31 +19,30 @@ final class Select extends Query
         $this->sql .= implode(' , ', $this->columns);
         $this->sql .= ' FROM ' . $this->table;
 
-        if ($this->criteria) {
-            $expression = $this->criteria->dump();
+        if (!isset($this->criteria)) {
+            return $this->sql;
+        }
 
-            if ($expression) {
-                $this->sql .= ' WHERE ' . $expression;
-            }
+        $expression = $this->criteria->dump();
 
-            $order  = $this->criteria->getProperty('order');
-            $limit  = $this->criteria->getProperty('limit');
-            $offset = $this->criteria->getProperty('offset');
+        if ($expression) {
+            $this->sql .= ' WHERE ' . $expression;
+        }
 
-            if ($order) {
-                $this->sql .= ' ORDER BY ' . $order;
-                return $this->sql;
-            }
+        $order  = $this->criteria->getProperty('order');
+        $limit  = $this->criteria->getProperty('limit');
+        $offset = $this->criteria->getProperty('offset');
 
-            if ($limit) {
-                $this->sql = ' LIMIT ' . $limit;
-                return $this->sql;
-            }
+        if ($order) {
+            $this->sql .= ' ORDER BY ' . $order;
+        }
 
-            if ($offset) {
-                $this->sql = ' OFFSET ' . $offset;
-                return $this->sql;
-            }
+        if ($limit) {
+            $this->sql .= ' LIMIT ' . $limit;
+        }
+
+        if ($offset) {
+            $this->sql .= ' OFFSET ' . $offset;
         }
 
         return $this->sql;
