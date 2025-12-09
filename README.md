@@ -13,6 +13,7 @@ The development of this component has been a major learning experience. I'm impr
 - Composer
 - PostgreSQL
 - Dotenv library (`vlucas/phpdotenv`)
+- PHP Unit (`phpunit/phpunit`)
 
 > **Note:** This project is currently under development, and at the moment it only works with **PostgreSQL**. It will soon be adapted to support other database types.
 
@@ -50,22 +51,7 @@ composer dump-autoload
 Here’s a simple example showing how to build a SQL query using this Query Builder with Insert:
 
 ```php
-<?php
 
-use Sophia\QueryBuilder\Core\Insert;
-
-require_once __DIR__ . '/../../bootstrap.php';
-
-$sql = new Insert;
-
-$sql->setTable('person');
-
-$sql->setRowData('codigo', 1);
-$sql->setRowData('nome', 'Mary');
-
-$pdo = $sql->getInstruction();
-
-$connection->exec($pdo);
 
 ```
 
