@@ -2,7 +2,7 @@
 
 require_once __DIR__ . '/../../vendor/autoload.php';
 
-use Sophia\QueryBuilder\Core\QueryBuilder;
+use Sophia\QueryBuilder\QueryBuilder;
 
 $sql = (new QueryBuilder)
     ->select(['id', 'name'])

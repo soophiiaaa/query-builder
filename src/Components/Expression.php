@@ -1,8 +1,8 @@
 <?php
 
-namespace Sophia\QueryBuilder\Core;
+namespace Sophia\QueryBuilder\Components;
 
-use Sophia\QueryBuilder\Core\SqlValueFormatter;
+use Sophia\QueryBuilder\Components\SqlValueFormatter;
 
 /**
  * Base class for all logical SQL expressions used by the query builder.

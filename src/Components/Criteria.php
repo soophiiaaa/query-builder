@@ -1,9 +1,9 @@
 <?php
 
-namespace Sophia\QueryBuilder\Core;
+namespace Sophia\QueryBuilder\Components;
 
-use Sophia\QueryBuilder\Core\Expression;
-use Sophia\QueryBuilder\Core\Operators;
+use Sophia\QueryBuilder\Components\Expression;
+use Sophia\QueryBuilder\Components\Operators;
 
 class Criteria extends Expression
 {

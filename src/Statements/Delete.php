@@ -1,8 +1,8 @@
 <?php
 
-namespace Sophia\QueryBuilder\Core;
+namespace Sophia\QueryBuilder\Statements;
 
-use Sophia\QueryBuilder\Core\Query;
+use Sophia\QueryBuilder\Abstract\Query;
 
 final class Delete extends Query
 {

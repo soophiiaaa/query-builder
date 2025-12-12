@@ -1,10 +1,10 @@
 <?php
 
-namespace Sophia\QueryBuilder\Core;
+namespace Sophia\QueryBuilder;
 
-use Sophia\QueryBuilder\Abstract\Query;
-use Sophia\QueryBuilder\Core\Criteria;
-use Sophia\QueryBuilder\Core\Select;
+use Sophia\QueryBuilder\Components\Criteria;
+use Sophia\QueryBuilder\Components\Filter;
+use Sophia\QueryBuilder\Statements\Select;
 
 class QueryBuilder
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Sophia\QueryBuilder\Core;
+namespace Sophia\QueryBuilder\Statements;
 
 use Sophia\QueryBuilder\Abstract\Query;
 

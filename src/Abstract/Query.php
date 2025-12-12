@@ -2,9 +2,8 @@
 
 namespace Sophia\QueryBuilder\Abstract;
 
-use Sophia\QueryBuilder\Core\Criteria;
-use Sophia\QueryBuilder\Core\Filter;
-use Sophia\QueryBuilder\Core\SqlValueFormatter;
+use Sophia\QueryBuilder\Components\Criteria;
+use Sophia\QueryBuilder\Components\SqlValueFormatter;
 
 abstract class Query
 {

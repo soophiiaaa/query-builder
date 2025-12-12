@@ -1,8 +1,8 @@
 <?php
 
-namespace Sophia\QueryBuilder\Core;
+namespace Sophia\QueryBuilder\Components;
 
-use Sophia\QueryBuilder\Core\Literals;
+use Sophia\QueryBuilder\Components\Literals;
 
 class SqlValueFormatter
 {

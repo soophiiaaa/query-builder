@@ -1,9 +1,10 @@
 <?php
 
-namespace Sophia\QueryBuilder\Core;
+namespace Sophia\QueryBuilder\Statements;
 
 use Exception;
-use Sophia\QueryBuilder\Core\Query;
+use Sophia\QueryBuilder\Components\Criteria;
+use Sophia\QueryBuilder\Abstract\Query;
 
 final class Insert extends Query
 {
