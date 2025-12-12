@@ -2,73 +2,30 @@
 
 namespace Sophia\QueryBuilder;
 
-use Sophia\QueryBuilder\Components\Criteria;
-use Sophia\QueryBuilder\Components\Filter;
+use Sophia\QueryBuilder\Statements\Delete;
+use Sophia\QueryBuilder\Statements\Insert;
 use Sophia\QueryBuilder\Statements\Select;
+use Sophia\QueryBuilder\Statements\Update;
 
 class QueryBuilder
 {
-    private Select $select;
-    private Criteria $criteria;
-
-    public function select(string|array $columns): self
+    public function select(string|array $columns = Select::STAR): Select
     {
-        $this->select = new Select();
-
-        if (is_array($columns)) {
-            foreach ($columns as $column) {
-                $this->select->addColumn($column);
-            }
-        } else {
-            $this->select->addColumn($columns);
-        }
-
-        return $this;
+        return new Select($columns);
     }
 
-    public function from(string $table): self
+    public function insert(): Insert
     {
-        $this->select->setTable($table);
-        return $this;
+        return new Insert();
     }
 
-    public function where(string $variable, string $operator = Operators::EQUAL, mixed $value, ?string $logical = Expression::AND_OPERATOR): static
+    public function update(string $table): Update
     {
-        $this->criteria = new Criteria();
-
-        $this->criteria->add(
-            new Filter(
-                $variable,
-                $operator,
-                $value
-            ),
-            $logical
-        );
-
-        return $this;
+        return new Update($table);
     }
 
-    public function orderBy(string $column): self
+    public function delete(): Delete
     {
-        $this->criteria->setProperty('order', $column);
-        return $this;
-    }
-
-    public function limit(int $number): self
-    {
-        $this->criteria->setProperty('limit', $number);
-        return $this;
-    }
-
-    public function offset(int $number): self
-    {
-        $this->criteria->setProperty('offset', $number);
-        return $this;
-    }
-
-    public function get(): string
-    {
-        $this->select->setCriteria($this->criteria);
-        return $this->select->getInstruction();
+        return new Delete();
     }
 }

@@ -3,23 +3,29 @@
 namespace Sophia\QueryBuilder\Statements;
 
 use Sophia\QueryBuilder\Abstract\Query;
+use Sophia\QueryBuilder\Components\HasCriteria;
 
 final class Update extends Query
 {
-    private array $columnValues;
+    use HasCriteria;
 
-    public function __construct()
+    private array $columnValues;
+    protected string $table;
+
+    public function __construct(string $table)
     {
         parent::__construct();
+        $this->table = $table;
     }
 
-    public function setRowData(string $column, mixed $value): void
+    public function set(string $column, mixed $value): static
     {
         $formattedValue = $this->formatter->format($value);
         $this->columnValues[$column] = $formattedValue;
+        return $this;
     } 
 
-    public function getInstruction(): string
+    public function get(): string
     {
         $this->sql = "UPDATE {$this->table}";
 

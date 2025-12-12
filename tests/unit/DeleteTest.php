@@ -16,7 +16,7 @@ $criteria->add(new Filter(
     )
 );
 
-$sql->setTable('aluno');
+$sql->from('aluno');
 $sql->setCriteria($criteria);
 
-echo $sql->getInstruction() . "\n";
+echo $sql->get() . "\n";

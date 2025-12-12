@@ -10,9 +10,9 @@ use Sophia\QueryBuilder\Infrastructure\Database\Connection;
 $sql = new Select;
 $criteria = new Criteria;
 
-$sql->setTable('pessoa');
+$sql->from('pessoa');
 
-$sql->addColumn('codigo');
+$sql->dColumn('codigo');
 $sql->addColumn('nome');
 
 $criteria->add(new Filter(

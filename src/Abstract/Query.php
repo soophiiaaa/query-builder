@@ -18,14 +18,10 @@ abstract class Query
         $this->formatter = new SqlValueFormatter();
     }
 
-    final public function setTable(string $table): void
+    final public function from(string $table): static
     {
         $this->table = $table;
-    }
-
-    final public function getTable(): string
-    {
-        return $this->table;
+        return $this;
     }
 
     public function setCriteria(Criteria $criteria): void
@@ -33,5 +29,5 @@ abstract class Query
         $this->criteria = $criteria;
     }
 
-    abstract public function getInstruction();
+    abstract public function get();
 }

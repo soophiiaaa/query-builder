@@ -3,17 +3,22 @@
 namespace Sophia\QueryBuilder\Statements;
 
 use Sophia\QueryBuilder\Abstract\Query;
+use Sophia\QueryBuilder\Components\HasCriteria;
 
 final class Select extends Query
 {
-    private array $columns;
+    use HasCriteria;
 
-    public function addColumn(string $column)
+    public const STAR = '*';
+
+    private array $columns = [];
+
+    public function __construct(string|array $columns = self::STAR)
     {
-        $this->columns[] = $column;
+        $this->columns = is_array($columns) ? $columns : [$columns];
     }
 
-    public function getInstruction(): string
+    public function get(): string
     {
         $this->sql = 'SELECT ';
         $this->sql .= implode(' , ', $this->columns);

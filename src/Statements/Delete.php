@@ -3,10 +3,13 @@
 namespace Sophia\QueryBuilder\Statements;
 
 use Sophia\QueryBuilder\Abstract\Query;
+use Sophia\QueryBuilder\Components\HasCriteria;
 
 final class Delete extends Query
 {
-    public function getInstruction(): string
+    use HasCriteria;
+
+    public function get(): string
     {
         $this->sql = "DELETE FROM {$this->table}";
 

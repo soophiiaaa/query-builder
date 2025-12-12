@@ -16,12 +16,12 @@ $criteria->add(new Filter(
     )
 );
 
-$sql->setTable('aluno');
+$sql->from('aluno');
 
-$sql->setRowData('nome', 'Pedro Cardoso da Silva');
-$sql->setRowData('rua', 'Machado de Assis');
-$sql->setRowData('fone', '(88) 4444-5555');
+$sql->set('nome', 'Pedro Cardoso da Silva');
+$sql->set('rua', 'Machado de Assis');
+$sql->set('fone', '(88) 4444-5555');
 
 $sql->setCriteria($criteria);
 
-echo $sql->getInstruction() . "\n";
+echo $sql->get() . "\n";

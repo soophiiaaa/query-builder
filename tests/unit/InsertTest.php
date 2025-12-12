@@ -6,14 +6,14 @@ use Sophia\QueryBuilder\Statements\Insert;
 
 $sql = new Insert;
 
-$sql->setTable('aluno');
+$sql->from('aluno');
 
-$sql->setRowData('id', 3);
-$sql->setRowData('nome', 'Sophia Lacerda');
-$sql->setRowData('fone', '(82) 1111-2222');
-$sql->setRowData('nascimento', '2007-05-11');
-$sql->setRowData('sexo', 'F');
-$sql->setRowData('turma', '913A');
-$sql->setRowData('mensalidade', 450);
+$sql->values('id', 3);
+$sql->values('nome', 'Sophia Lacerda');
+$sql->values('fone', '(82) 1111-2222');
+$sql->values('nascimento', '2007-05-11');
+$sql->values('sexo', 'F');
+$sql->values('turma', '913A');
+$sql->values('mensalidade', 450);
 
-echo $sql->getInstruction() . "\n";
+echo $sql->get() . "\n";

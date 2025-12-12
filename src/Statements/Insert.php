@@ -14,12 +14,17 @@ final class Insert extends Query
     {
         parent::__construct();
     }
- 
-    public function setRowData(string $column, mixed $value): void
+
+    public function into(string $table): static
+    {
+        $this->table = $table;
+        return $this;
+    }
+    public function values(string $column, mixed $value): static
     {
         $formattedValue = $this->formatter->format($value);
         $this->columnValues[$column] = $formattedValue;
-        echo "Values entered into the database \n";
+        return $this;
     }
 
     public function setCriteria(Criteria $criteria): void
@@ -27,7 +32,7 @@ final class Insert extends Query
         throw new Exception("Cannot call setCriteria from" . __CLASS__);
     }
 
-    public function getInstruction(): string
+    public function get(): string
     {
         $this->sql = "INSERT INTO {$this->table} (";
 
