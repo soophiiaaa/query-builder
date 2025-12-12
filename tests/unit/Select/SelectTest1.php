@@ -3,9 +3,9 @@
 require_once __DIR__ . '/../../../vendor/autoload.php';
 
 use PHPUnit\Framework\TestCase;
-use Sophia\QueryBuilder\Core\Criteria;
-use Sophia\QueryBuilder\Core\Filter;
-use Sophia\QueryBuilder\Core\Select;
+use Sophia\QueryBuilder\Components\Criteria;
+use Sophia\QueryBuilder\Components\Filter;
+use Sophia\QueryBuilder\Statements\Select;
 
 class SelectTest1 extends TestCase
 {

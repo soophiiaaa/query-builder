@@ -2,9 +2,9 @@
 
 require_once __DIR__ . '/../../vendor/autoload.php';
 
-use Sophia\QueryBuilder\Core\Criteria;
-use Sophia\QueryBuilder\Core\Delete;
-use Sophia\QueryBuilder\Core\Filter;
+use Sophia\QueryBuilder\Components\Criteria;
+use Sophia\QueryBuilder\Components\Filter;
+use Sophia\QueryBuilder\Statements\Delete;
 
 $criteria = new Criteria;
 $sql = new Delete;

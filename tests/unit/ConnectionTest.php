@@ -2,9 +2,9 @@
 
 require_once __DIR__ . '/../../bootstrap.php';
 
-use Sophia\QueryBuilder\Core\Criteria;
-use Sophia\QueryBuilder\Core\Filter;
-use Sophia\QueryBuilder\Core\Select;
+use Sophia\QueryBuilder\Components\Criteria;
+use Sophia\QueryBuilder\Components\Filter;
+use Sophia\QueryBuilder\Statements\Select;
 use Sophia\QueryBuilder\Infrastructure\Database\Connection;
 
 $sql = new Select;

@@ -2,9 +2,9 @@
 
 require_once __DIR__ . '/../../vendor/autoload.php';
 
-use Sophia\QueryBuilder\Core\Expression;
-use Sophia\QueryBuilder\Core\Filter;
-use Sophia\QueryBuilder\Core\Criteria;
+use Sophia\QueryBuilder\Components\Criteria;
+use Sophia\QueryBuilder\Components\Expression;
+use Sophia\QueryBuilder\Components\Filter;
 
 $criteria1 = new Criteria;
 $criteria2 = new Criteria;

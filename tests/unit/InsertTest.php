@@ -2,7 +2,7 @@
 
 require_once __DIR__ . '/../../vendor/autoload.php';
 
-use Sophia\QueryBuilder\Core\Insert;
+use Sophia\QueryBuilder\Statements\Insert;
 
 $sql = new Insert;
 

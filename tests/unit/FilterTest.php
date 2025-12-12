@@ -2,7 +2,7 @@
 
 require_once __DIR__ . "/../../vendor/autoload.php";
 
-use Sophia\QueryBuilder\Core\Filter;
+use Sophia\QueryBuilder\Components\Filter;
 
 $filter1 = new Filter(
     'nome',
