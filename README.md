@@ -1,6 +1,8 @@
 # 💾🔍 Query Builder 
 
 ![status](https://img.shields.io/badge/status-in%20development-yellow)
+![testing](https://img.shields.io/badge/state-under%20testing-blue)
+![updates](https://img.shields.io/badge/updates-frequent-brightgreen)
 
 This repository is a query builder — a tool that allows you to create database queries programmatically and visually using methods and functions instead of writing raw SQL. This makes the code more readable, secure, flexible, and easier to maintain, almost like assembling building blocks to construct statements such as `SELECT`, `WHERE`, and `ORDER BY` in an intuitive way, independent of the database engine.
 
@@ -13,9 +15,6 @@ The development of this component has been a major learning experience. I'm impr
 - Composer
 - PostgreSQL
 - Dotenv library (`vlucas/phpdotenv`)
-- PHP Unit (`phpunit/phpunit`)
-
-> **Note:** This project is currently under development, and at the moment it only works with **PostgreSQL**. It will soon be adapted to support other database types.
 
 ### 1. Clone the repository
 ```bash
@@ -48,11 +47,56 @@ composer dump-autoload
 ```
 
 ## How to Use
-Here’s a simple example showing how to build a SQL query using this Query Builder with Insert:
+Here’s a simple example showing how to build a SQL query using this Query Builder:
 
+### Select
 ```php
+$query = new QueryBuilder();
 
+$sql = $query->select(['id', 'name'])
+    ->from('students')
+    ->where('age', '>', 18)
+    ->limit(10)
+    ->get();
 
+echo $sql . "\n";
+```
+
+### Insert
+```php
+$query = new QueryBuilder();
+
+$sql = $query->insert()
+    ->into('students')
+    ->values('name', 'John Doe')
+    ->values('age', 22)
+    ->values('course', 'Systems Development')
+    ->get();
+
+echo $sql . "\n";
+```
+### Update
+```php
+$query = new QueryBuilder();
+
+$sql = $query->update()
+    ->set('course', 'Systems Development')
+    ->where('id', '=', '2')
+    ->get();
+
+echo $sql . "\n";
+```
+
+### Delete
+```php
+$query = new QueryBuilder();
+
+$sql = $query->delete()
+    ->from('students')
+    ->where('active', '=', false)
+    ->get();
+
+echo $sql . "\n";
 ```
 
 ## Credits
