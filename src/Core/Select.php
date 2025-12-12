@@ -2,7 +2,7 @@
 
 namespace Sophia\QueryBuilder\Core;
 
-use Sophia\QueryBuilder\Core\Query;
+use Sophia\QueryBuilder\Abstract\Query;
 
 final class Select extends Query
 {

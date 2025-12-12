@@ -1,8 +1,9 @@
 <?php
 
-namespace Sophia\QueryBuilder\Core;
+namespace Sophia\QueryBuilder\Abstract;
 
 use Sophia\QueryBuilder\Core\Criteria;
+use Sophia\QueryBuilder\Core\Filter;
 use Sophia\QueryBuilder\Core\SqlValueFormatter;
 
 abstract class Query
@@ -14,6 +15,7 @@ abstract class Query
 
     public function __construct()
     {
+        $this->criteria  = new Criteria();
         $this->formatter = new SqlValueFormatter();
     }
 
