@@ -4,7 +4,7 @@
 ![updates](https://img.shields.io/badge/updates-frequent-brightgreen)
 ![tests](https://img.shields.io/badge/tests-in%20progress-yellow)
 
-This repository is a query builder — a tool that allows you to create database queries programmatically using methods and functions instead of writing raw SQL. This makes the code more readable, secure, flexible, and easier to maintain, almost like assembling building blocks to construct statements such as `SELECT`, `WHERE`, and `ORDER BY` in an intuitive way, independent of the database engine.
+This repository is a query builder — a tool that allows you to create database queries programmatically using methods and functions instead of writing raw SQL. This makes the code more readable, secure, flexible, and easier to maintain, almost like assembling building blocks to construct statements such as `SELECT`, `WHERE`, and `ORDER BY` in an intuitive way.
 
 The development of this component has been a major learning experience. I'm improving my programming logic, adopting better practices, and gaining a deeper understanding of software architecture, testing, and security.
 
