@@ -1,6 +1,6 @@
 <?php
 
-namespace tests\unit;
+namespace Sophia\QueryBuilder\Tests;
 
 use PHPUnit\Framework\TestCase;
 use Sophia\QueryBuilder\Statements\Select;
