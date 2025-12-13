@@ -5,7 +5,7 @@ require_once __DIR__ . '/vendor/autoload.php';
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->load();
 
-use Sophia\QueryBuilder\Infrastructure\Database\Connection;
+use Sophia\QueryBuilder\Database\Connection;
 
 try {
     $connection = Connection::connect();
