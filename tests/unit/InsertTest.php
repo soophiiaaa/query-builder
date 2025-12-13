@@ -6,7 +6,7 @@ use Sophia\QueryBuilder\Statements\Insert;
 
 $sql = new Insert;
 
-$sql->from('aluno');
+$sql->into('aluno');
 
 $sql->values('id', 3);
 $sql->values('nome', 'Sophia Lacerda');

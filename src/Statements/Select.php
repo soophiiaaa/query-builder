@@ -18,6 +18,29 @@ final class Select extends Query
         $this->columns = is_array($columns) ? $columns : [$columns];
     }
 
+    public function from(string $table): self
+    {
+        return $this->setTable($table);
+    }
+
+    public function orderBy(string $column): self
+    {
+        $this->criteria->setProperty('order', $column);
+        return $this;
+    }
+
+    public function limit(int $number): self
+    {
+        $this->criteria->setProperty('limit', $number);
+        return $this;
+    }
+
+    public function offset(int $number): self
+    {
+        $this->criteria->setProperty('offset', $number);
+        return $this;
+    }
+
     public function get(): string
     {
         $this->sql = 'SELECT ';

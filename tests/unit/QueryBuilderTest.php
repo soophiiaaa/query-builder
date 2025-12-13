@@ -26,11 +26,12 @@ $sql = $qb->insert()
     ->values('age', 17)
     ->values('grade', '8th')
     ->get();
-*/
+
 
 $sql = $qb->update('students')
     ->set('name', 'Julie')
     ->where('id', '=', 2)
     ->get();
-    
+*/
+
 echo $sql . "\n";

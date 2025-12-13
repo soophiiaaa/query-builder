@@ -18,7 +18,7 @@ final class Update extends Query
         $this->table = $table;
     }
 
-    public function set(string $column, mixed $value): static
+    public function set(string $column, mixed $value): self
     {
         $formattedValue = $this->formatter->format($value);
         $this->columnValues[$column] = $formattedValue;

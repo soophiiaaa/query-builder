@@ -18,13 +18,13 @@ abstract class Query
         $this->formatter = new SqlValueFormatter();
     }
 
-    final public function from(string $table): static
+    final protected function setTable(string $table): self
     {
         $this->table = $table;
         return $this;
     }
 
-    public function setCriteria(Criteria $criteria): void
+    final protected function setCriteria(Criteria $criteria): void
     {
         $this->criteria = $criteria;
     }

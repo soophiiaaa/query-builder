@@ -28,22 +28,4 @@ trait HasCriteria
 
         return $this;
     }
-
-    public function orderBy(string $column): self
-    {
-        $this->criteria->setProperty('order', $column);
-        return $this;
-    }
-
-    public function limit(int $number): self
-    {
-        $this->criteria->setProperty('limit', $number);
-        return $this;
-    }
-
-    public function offset(int $number): self
-    {
-        $this->criteria->setProperty('offset', $number);
-        return $this;
-    }
 }

@@ -15,21 +15,15 @@ final class Insert extends Query
         parent::__construct();
     }
 
-    public function into(string $table): static
+    public function into(string $table): self
     {
-        $this->table = $table;
-        return $this;
+        return $this->setTable($table);
     }
-    public function values(string $column, mixed $value): static
+    public function values(string $column, mixed $value): self
     {
         $formattedValue = $this->formatter->format($value);
         $this->columnValues[$column] = $formattedValue;
         return $this;
-    }
-
-    public function setCriteria(Criteria $criteria): void
-    {
-        throw new Exception("Cannot call setCriteria from" . __CLASS__);
     }
 
     public function get(): string
