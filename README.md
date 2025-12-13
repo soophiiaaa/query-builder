@@ -10,7 +10,7 @@ The development of this component has been a major learning experience. I'm impr
 
 This project is not an ORM and does not manage entities or persistence.
 
-## How to Install and Run
+## Installation
 
 ### Requirements
 - PHP 8.0+
@@ -18,17 +18,12 @@ This project is not an ORM and does not manage entities or persistence.
 - PostgreSQL
 - Dotenv library (`vlucas/phpdotenv`)
 
-### 1. Clone the repository
+### Via Composer
 ```bash
-git clone https://github.com/soophiiaaa/query-builder.git
-cd query-builder
-````
-### 2. Install dependencies
-```bash
-composer install
+composer require soophiiaaa/query-builder
 ```
 
-### 3. Environment configuration
+### 2. Environment configuration
 Copy the example env file and fill in your values:
 ```bash
 cp .env.example .env
@@ -36,16 +31,11 @@ cp .env.example .env
 
 Edit `.env` and set database credentials, etc:
 ```
-
 DB_HOST=localhost
 DB_PORT=5432
 DB_USER=root
 DB_PASSWORD=
 DB_NAME=your_database
-```
-### 4. Generate autoload files
-```bash
-composer dump-autoload
 ```
 
 ## How to Use
@@ -140,7 +130,7 @@ $sql = $query->select('id')
 
 Its sole responsibility is to **build SQL strings** in a safe, readable, and structured way using a fluent interface.
 
-The actual execution of the query is **always handled externally**, typically by a `PDO` connection or a repository/service layer.
+The actual execution of the query is **always handled externally**, typically by a `PDO` connection.
 
 Example:
 
