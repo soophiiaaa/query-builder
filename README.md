@@ -18,7 +18,7 @@ This project is not an ORM and does not manage entities or persistence.
 - PostgreSQL
 - Dotenv library (`vlucas/phpdotenv`)
 
-### Via Composer
+### 1. Via Composer
 ```bash
 composer require soophiiaaa/query-builder
 ```
@@ -34,7 +34,7 @@ Edit `.env` and set database credentials, etc:
 DB_HOST=localhost
 DB_PORT=5432
 DB_USER=root
-DB_PASSWORD=
+DB_PASSWORD=your_password
 DB_NAME=your_database
 ```
 
