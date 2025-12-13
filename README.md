@@ -1,12 +1,14 @@
 # 💾🔍 Query Builder 
 
-![status](https://img.shields.io/badge/status-in%20development-yellow)
-![testing](https://img.shields.io/badge/state-under%20testing-blue)
+![status](https://img.shields.io/badge/status-active%20development-blue)
 ![updates](https://img.shields.io/badge/updates-frequent-brightgreen)
+![tests](https://img.shields.io/badge/tests-in%20progress-yellow)
 
-This repository is a query builder — a tool that allows you to create database queries programmatically and visually using methods and functions instead of writing raw SQL. This makes the code more readable, secure, flexible, and easier to maintain, almost like assembling building blocks to construct statements such as `SELECT`, `WHERE`, and `ORDER BY` in an intuitive way, independent of the database engine.
+This repository is a query builder — a tool that allows you to create database queries programmatically using methods and functions instead of writing raw SQL. This makes the code more readable, secure, flexible, and easier to maintain, almost like assembling building blocks to construct statements such as `SELECT`, `WHERE`, and `ORDER BY` in an intuitive way, independent of the database engine.
 
 The development of this component has been a major learning experience. I'm improving my programming logic, adopting better practices, and gaining a deeper understanding of software architecture, testing, and security.
+
+This project is not an ORM and does not manage entities or persistence.
 
 ## How to Install and Run
 
@@ -34,13 +36,13 @@ cp .env.example .env
 
 Edit `.env` and set database credentials, etc:
 ```
+
 DB_HOST=localhost
-DB_PORT=3306
+DB_PORT=5432
 DB_USER=root
 DB_PASSWORD=
 DB_NAME=your_database
 ```
-
 ### 4. Generate autoload files
 ```bash
 composer dump-autoload
@@ -48,6 +50,8 @@ composer dump-autoload
 
 ## How to Use
 Here’s a simple example showing how to build a SQL query using this Query Builder:
+> The `get()` method returns the generated SQL string.
+> It does NOT execute the query.
 
 ### Select
 ```php
@@ -126,8 +130,39 @@ $sql = $query->select('id')
           operator: 'LIKE',
           value: 'A%',
           logical: 'OR' // <--- Defines the logical operator for this condition
-      );
+      )
+      ->get();
 ```
+
+### Important: Query Execution
+
+> **This Query Builder does NOT execute SQL queries.**
+
+Its sole responsibility is to **build SQL strings** in a safe, readable, and structured way using a fluent interface.
+
+The actual execution of the query is **always handled externally**, typically by a `PDO` connection or a repository/service layer.
+
+Example:
+
+```php
+$query = new QueryBuilder();
+$pdo = Connection::connect();
+
+$sql = $query->select('id')
+      ->from('users')
+      ->where('age', '>', 18)
+      ->where('name', 'LIKE', 'A%', 'OR')
+      ->get();
+
+$result = $pdo->query($sql);
+```
+
+This separation of concerns ensures:
+
+* better testability
+* cleaner architecture
+* full control over database connections
+* compatibility with any execution strategy
 
 ## Credits
 

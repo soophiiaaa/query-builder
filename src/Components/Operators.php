@@ -6,8 +6,6 @@ use InvalidArgumentException;
 
 final class Operators
 {
-    public const AND                    = 'AND';
-    public const OR                     = 'OR';
     public const EQUAL                  = '=';
     public const NOT_EQUAL              = '!=';
     public const GREATER_THAN           = '>';

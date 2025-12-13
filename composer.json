@@ -1,6 +1,6 @@
 {
   "name": "soophiiaaa/query-builder",
-  "description": "A query-builder that will be a component of a future project.",
+  "description": "A fluent SQL query builder designed as a reusable component for future projects.",
   "type": "library",
   "autoload": {
     "psr-4": {

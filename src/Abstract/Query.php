@@ -7,10 +7,10 @@ use Sophia\QueryBuilder\Components\SqlValueFormatter;
 
 abstract class Query
 {
-    protected string $sql;
     protected Criteria $criteria;
-    protected string $table;
     protected SqlValueFormatter $formatter;
+    protected string $sql;
+    protected string $table;
 
     public function __construct()
     {
