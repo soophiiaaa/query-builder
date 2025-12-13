@@ -157,13 +157,6 @@ $sql = $query->select('id')
 $result = $pdo->query($sql);
 ```
 
-This separation of concerns ensures:
-
-* better testability
-* cleaner architecture
-* full control over database connections
-* compatibility with any execution strategy
-
 ## Credits
 
 It was truly a challenge to begin building this query builder, as I didn’t even know where to start. I found an excellent book that helped me a lot and became my guide throughout the entire process:
