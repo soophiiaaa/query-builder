@@ -19,11 +19,11 @@ class Criteria extends Expression
 
     public function add(Expression $expression, string $operator = self::AND_OPERATOR): void
     {
-        if (!empty($this->expressions)) {
+        if (empty($this->expressions)) {
+            $this->operators[] = null;
+        } else {
             $this->operators[] = Operators::validate($operator);
         }
-
-        $this->operators[] = null;
 
         $this->expressions[] = $expression;
     }

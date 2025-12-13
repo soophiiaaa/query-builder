@@ -99,6 +99,36 @@ $sql = $query->delete()
 echo $sql . "\n";
 ```
 
+## Advanced Filtering (AND / OR)
+
+By default, all conditions added with the `where` method are combined using the **AND** operator.
+
+```php
+$query = new QueryBuilder();
+
+$sql = $query->select()
+      ->from('students')
+      ->where('age', '>', 18)
+      ->where('active', '=', true);
+```
+
+To use the **OR** operator, you must pass the `logical` argument to the `where` method.
+The use of **Named Arguments** (a feature of PHP 8) is recommended for better readability and clarity.
+
+```php
+$query = new QueryBuilder();
+
+$sql = $query->select('id')
+      ->from('users')
+      ->where('age', '>', 18)
+      ->where(
+          variable: 'name',
+          operator: 'LIKE',
+          value: 'A%',
+          logical: 'OR' // <--- Defines the logical operator for this condition
+      );
+```
+
 ## Credits
 
 It was truly a challenge to begin building this query builder, as I didn’t even know where to start. I found an excellent book that helped me a lot and became my guide throughout the entire process:
