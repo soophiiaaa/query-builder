@@ -5,37 +5,37 @@ require_once __DIR__ . "/../../vendor/autoload.php";
 use Sophia\QueryBuilder\Components\Filter;
 
 $filter1 = new Filter(
-    'nome',
+    'name',
     '=',
     'Sophia'
 );
 
 $filter2 = new Filter(
-    'idade',
+    'age',
     '>',
     18
 );
 
 $filter3 = new Filter(
-    'salario',
+    'wage',
     '<',
     3000
 );
 
 $filter4 = new Filter(
-    'data',
+    'date',
     'IS',
     null
 );
 
 $filter5 = new Filter(
-    'descricao',
+    'description',
     'IS NOT',
     null
 );
 
 $filter6 = new Filter(
-    'ativo',
+    'active',
     '=',
     true
 );
@@ -53,15 +53,15 @@ $filter8 = new Filter(
 );
 
 $filter9 = new Filter(
-    'nome',
+    'name',
     'IN',
     ['Ana', 'Bia', 'Carla']
 );
 
 $filter10 = new Filter(
-    'nome',
+    'name',
     'LIKE',
-    'So%'
+    'S%'
 );
 
 echo $filter1->dump() . "\n";

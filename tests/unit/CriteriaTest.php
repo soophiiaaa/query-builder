@@ -16,7 +16,7 @@ $criteria7 = new Criteria;
 $criteria8 = new Criteria;
 
 $criteria1->add(new Filter(
-    'idade',
+    'age',
     '<',
     16
     ),
@@ -24,7 +24,7 @@ $criteria1->add(new Filter(
 );
 
 $criteria1->add(new Filter(
-    'idade',
+    'age',
     '>',
     60
     ),
@@ -32,44 +32,44 @@ $criteria1->add(new Filter(
 );
 
 $criteria2->add(new Filter(
-    'idade',
+    'age',
     'IN',
     [24, 25, 26]
     )
 );
 
 $criteria2->add(new Filter(
-    'idade',
+    'age',
     'IN NOT',
     [10]
     )
 );
 
 $criteria3->add(new Filter(
-    'nome',
+    'name',
     'LIKE',
-    'Pedro%'    
+    'P%'    
     ),
     Expression::OR_OPERATOR
 );
 
 $criteria3->add(new Filter(
-    'nome',
+    'name',
     'LIKE',
-    'Maria%'
+    'M%'
     ),
     Expression::OR_OPERATOR
 );
 
 $criteria4->add(new Filter(
-    'telefone',
+    'phone',
     'IS NOT',
     NULL
     ),
 );
 
 $criteria4->add(new Filter(
-    'sexo',
+    'gender',
     '=',
     'F'
     )
@@ -90,28 +90,28 @@ $criteria5->add(new Filter(
 );
 
 $criteria6->add(new Filter(
-    'sexo',
+    'gender',
     '=',
     'F'
     )
 );
 
 $criteria6->add(new Filter(
-    'idade',
+    'age',
     '>',
     18
     )
 );
 
 $criteria7->add(new Filter(
-    'sexo',
+    'gender',
     '=',
     'M'
     )
 );
 
 $criteria7->add(new Filter(
-    'idade',
+    'age',
     '<',
     16
     )
