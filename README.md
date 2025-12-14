@@ -62,9 +62,7 @@ $query = new QueryBuilder();
 
 $sql = $query->insert()
     ->into('students')
-    ->values('name', 'John Doe')
-    ->values('age', 22)
-    ->values('course', 'Systems Development')
+    ->values(['name' => 'John Doe', 'age' => 20, 'country' => 'Brazil'])
     ->get();
 
 echo $sql . "\n";
