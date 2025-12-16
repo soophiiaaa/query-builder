@@ -71,7 +71,7 @@ echo $sql . "\n";
 ```php
 $query = new QueryBuilder();
 
-$sql = $query->update()
+$sql = $query->update('students')
     ->set('course', 'Systems Development')
     ->where('id', '=', '2')
     ->get();

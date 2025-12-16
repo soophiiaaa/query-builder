@@ -7,7 +7,7 @@ use Sophia\QueryBuilder\Statements\Select;
 
 class SelectTest extends TestCase
 {
-    public function testGeneratesBasicSql(): void
+    public function testGenerateBasicSelect(): void
     {
         $qb = new Select();
 

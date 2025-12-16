@@ -7,7 +7,7 @@ use Sophia\QueryBuilder\Statements\Insert;
 
 class InsertTest extends TestCase
 {
-    public function testBasicInsert(): void
+    public function testGenerateBasicInsert(): void
     {
         $qb = new Insert();
 
