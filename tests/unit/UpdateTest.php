@@ -17,4 +17,16 @@ class UpdateTest extends TestCase
 
         $this->assertSame("UPDATE students SET course = 'Systems Development' WHERE (id = 1)", $sql);
     }
+
+    public function testMethodOrderDoesNotBreakSql(): void
+    {
+        $qb = new Update('students');
+
+        $sql = $qb->where('course', '=', 'Systems Development')
+            ->set('id', 5)
+            ->where('name', '=', 'John Doe')
+            ->get();
+
+        $this->assertSame("UPDATE students SET id = 5 WHERE (course = 'Systems Development' AND name = 'John Doe')", $sql);
+    }
 }
