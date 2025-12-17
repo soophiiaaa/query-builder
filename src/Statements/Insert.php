@@ -9,6 +9,7 @@ final class Insert extends Query
 {
     private array $columns      = [];
     private array $placeholders = [];
+    private array $bindings     = [];
 
     public function __construct()
     {
@@ -36,6 +37,8 @@ final class Insert extends Query
         foreach ($values as $row) {
             $count = count($row);
             $placeholders = implode(', ', array_fill(0, $count, '?'));
+
+            $this->bindings[]     = $row;
             $this->placeholders[] = "({$placeholders})";
         }
 

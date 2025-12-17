@@ -2,6 +2,7 @@
 
 namespace Sophia\QueryBuilder\Statements;
 
+use LogicException;
 use Sophia\QueryBuilder\Abstract\Query;
 use Sophia\QueryBuilder\Components\HasCriteria;
 
@@ -33,11 +34,13 @@ final class Update extends Query
             }
         }
 
-        $this->sql = "UPDATE {$this->table} SET " . implode(', ', $set);
+        $expression = $this->criteria->dump();
 
-        if ($this->criteria) {
-            $this->sql .= ' WHERE ' . $this->criteria->dump();
+        if (!$expression) {
+            throw new LogicException('UPDATE statement requires a WHERE clause for safety');
         }
+
+        $this->sql = "UPDATE {$this->table} SET " . implode(', ', $set) . " WHERE {$expression}";
 
         return $this->sql;
     }
